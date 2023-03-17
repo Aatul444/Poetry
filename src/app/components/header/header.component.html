@@ -1,0 +1,50 @@
+<header class="
+    block
+    w-full
+    headColor
+    px-4
+    py-4
+    sm:flex sm:items-center sm:justify-between
+  ">
+  <div class="flex justify-between sm:block">
+    <a class="block text-2xl font-bold head-text"> PICHHLI BAHAR </a>
+    <!-- <img class="block text-2xl font-bold head-text" src="assets/logo.png" alt="PICHHILI BAHAR"> -->
+    <button class="block bg-transparent sm:hidden">
+      <input class="invisible appearance-none" type="checkbox" id="toggle" />
+
+      <label for="toggle">
+        <svg id="menu-icon" class="cursor-pointer inline-block text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform:msFilter">
+          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+        </svg>
+
+        <svg id="close-icon" class="hidden cursor-pointer text-white" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
+          <path
+            d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+          </path>
+        </svg>
+      </label>
+    </button>
+  </div>
+  <div #linksDiv id="navigation" style="--menu-height: {{ linksDiv.children.length * 2.5 }}rem" class="
+      flex
+      h-0
+      flex-col
+      items-center
+      gap-4
+      overflow-hidden
+      head-text
+      transition-all
+      duration-500
+      ease-in-out
+      sm:h-auto sm:flex-row sm:overflow-auto
+    ">
+    <a>Shayari's</a>
+    <a>Poems</a>
+    <a>Next Show</a>
+    <a>Upload Content</a>
+
+    <ng-content></ng-content>
+  </div>
+</header>
