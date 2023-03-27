@@ -1,26 +1,30 @@
-<app-carousel [images]="images" [autoSlide]="true"></app-carousel>
+<app-carousel *ngIf="!helper.littleNav" [images]="images" [autoSlide]="true"></app-carousel>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Some new artists from last time</h1>
       <!-- पिछली बार के कुछ नए कलाकार -->
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The PICHHLI BAHAR is a Platform to support emerging artists.
-        The PICHHLI BAHAR is a an Open platform for a community of writers, poets, singers, and Storyteller.</p>
+        The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.</p>
     </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="lg:w-1/3 sm:w-1/2 p-4">
+
+    <!-- youtube videos -->
+    <div class="flex flex-wrap -m-4 youtube-videos">
+      <div class="lg:w-1/3 sm:w-1/2 p-4 youtube-videos-video" *ngFor="let video of youtubeVideos; let i=index"
+        (click)="selectVideo(video)" [class.dspN]="video.id.kind==='youtube#channel'">
         <div class="flex relative">
           <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center"
-            src="https://dummyimage.com/600x360">
-          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing
-              tousled waistcoat.</p>
+            src="{{video.snippet.thumbnails.high.url}}">
+          <div class="px-8 py-10 relative w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">_पिछली बहार_</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{video.snippet.title}}</h1>
+            <p class="leading-relaxed">{{video.snippet.description}}{{video.isVideoClicked}}</p>
           </div>
         </div>
       </div>
     </div>
+    <!-- youtube videos -->
+
   </div>
 </section>
 <section class="text-gray-600 body-font">
@@ -31,7 +35,7 @@
         <div class="h-1 w-20 bg-indigo-500 rounded"></div>
       </div>
       <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">PICHHLI BAHAR is a Platform to support emerging artists.
-        The PICHHLI BAHAR is a an Open platform for a community of writers, poets, singers, and Storyteller.
+        The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.
 
         If you wish to perform or attend as a audience at the event, you can contact on 7238051580.
 
@@ -74,7 +78,8 @@
     </div>
     <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
       <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-      <p class="leading-relaxed mb-5 text-gray-600">Elevating voices through poetry, storytelling, comedy, music & more since 2010. Join us for events ft. emerging & renowned artists. Write down below</p>
+      <p class="leading-relaxed mb-5 text-gray-600">Elevating voices through poetry, storytelling, comedy, music & more
+        since 2010. Join us for events ft. emerging & renowned artists. Write down below</p>
       <div class="relative mb-4">
         <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
         <input type="text" id="name" name="name"
@@ -91,7 +96,8 @@
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
       <button
-        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Let's Connect</button>
+        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Let's
+        Connect</button>
       <p class="text-xs text-gray-500 mt-3">Poetry, Comedy, Storytelling Open Mics
       </p>
     </div>

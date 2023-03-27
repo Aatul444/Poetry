@@ -1,4 +1,4 @@
-<header class="
+<!-- <header class="
     block
     w-full
     headColor
@@ -8,7 +8,6 @@
   ">
   <div class="flex justify-between sm:block">
     <a class="block text-2xl font-bold head-text"> PICHHLI BAHAR </a>
-    <!-- <img class="block text-2xl font-bold head-text" src="assets/logo.png" alt="PICHHILI BAHAR"> -->
     <button class="block bg-transparent sm:hidden">
       <input class="invisible appearance-none" type="checkbox" id="toggle" />
 
@@ -47,4 +46,27 @@
 
     <ng-content></ng-content>
   </div>
-</header>
+</header> -->
+
+<div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+      PICHHLI BAHAR
+    </div>
+  </div>
+  <div class="nav-btn" (click)="toggle()">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <div class="nav-links">
+    <a>Shayari's</a>
+    <a>Poems</a>
+    <a>Next Show</a>
+    <a>Upload Content</a>
+  </div>
+</div>

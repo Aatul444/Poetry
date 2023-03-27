@@ -91,11 +91,11 @@ article {
     font-size: 1.5em;
     font-style: normal;
   }
-&.center{
-  bottom: 30px;
-  text-align: center;
-  width: 100%;
-}
+  &.center {
+    bottom: 30px;
+    text-align: center;
+    width: 100%;
+  }
   &.top-left {
     top: 30px;
     left: 30px;
@@ -258,4 +258,15 @@ article {
   body {
     padding: 0 80px;
   }
+}
+
+.youtube-videos {
+  justify-content: center;
+  .youtube-videos-video {
+    cursor: pointer;
+  }
+}
+
+.dspN {
+  display: none;
 }

@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CarouselModule } from './carousel/carousel.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UTubeStreamerComponent } from './components/u-tube-streamer/u-tube-streamer.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,12 @@ import { CarouselModule } from './carousel/carousel.module';
     HeaderComponent,
     FooterComponent,
     AdminComponent,
+    UTubeStreamerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CarouselModule
   ],
   providers: [],
