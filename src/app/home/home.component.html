@@ -43,7 +43,7 @@
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-100 p-6 rounded-lg">
+        <div class="bg-gray-100 p-6 rounded-lg" *ngFor="let insta of instasPosts">
           <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400"
             alt="content">
           <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
@@ -59,11 +59,15 @@
   <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
     <div
       class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-      <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
+      <!-- <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
         marginwidth="0" scrolling="no"
         src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(ChemistryClasses)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-        style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
-      <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+        style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe> -->
+      <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14358.816634566712!2d83.6474576!3d25.8792126!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39921f6d2dc2aea9%3A0x5c6a62a574be4aa8!2sJama%20Masjid%20Bahadurganj%20Ghazipur!5e0!3m2!1sen!2sin!4v1680409190242!5m2!1sen!2sin"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- style="filter: grayscale(1) contrast(1.2) opacity(0.4);" -->
+      <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md" style="filter: grayscale(1)">
         <div class="lg:w-1/2 px-6">
           <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
           <p class="mt-1">Jama masjid Bahadurganj 275201 Ghazipur (Uttar Pradesh)</p>
@@ -95,8 +99,8 @@
         <textarea id="message" name="message"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
-      <button
-        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Let's
+      <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        (click)="sendQuery()">Let's
         Connect</button>
       <p class="text-xs text-gray-500 mt-3">Poetry, Comedy, Storytelling Open Mics
       </p>

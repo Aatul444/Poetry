@@ -14,10 +14,14 @@ export class ApiService {
     isStreamerActive: false,
     data: {},
   };
-  littleNav=false;
+  littleNav = false;
+  
   getFBposts() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(
+      'https://graph.facebook.com/v16.0/110662868634128?fields=created_time%2Cdescription%2Cid%2Cname%2Cphotos%7Blink%2Cname_tags%2Cimages%2Calt_text%2Calt_text_custom%2Cbackdated_time%2Cbackdated_time_granularity%2Ccreated_time%2Cfrom%2Cheight%2Cicon%2Cid%2Cname%2Cpage_story_id%2Cplace%2Ctarget%2Cupdated_time%2Cwebp_images%2Cwidth%2Ccomments%2Cpicture%2Clikes%7Busername%2Cpicture%2Cname%2Cid%2Cpic%2Cpic_square%7D%7D&access_token=EAAC6702eU2UBANbzxO5mchnxRL9ltccU5OCNL55qawtCZBmNILcDGNNqqt1raU0SZCZATwKfJt5czlCHhCVfHmX6Kb37tEr8365jRFBeXwq5ZCFimCRsjYTI9uHXo6MKEu1qfCfgsyYK38zPWeuR4CsugHRxZBXpjZCmWsvXbdr2EL5QxTG4hJxHOBvfXByG9mnvEu0ezeW6wtTRSikcZAK'
+    );
   }
+
   getYoutubeVideos() {
     const apiKey = 'AIzaSyAyhP7cM8J8QkxSl3geGaaHMZjQsC1yGfE';
     const channelId = 'UCMgty2VEtNUtgDemXw4WVIQ';

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HelperService } from '../services/user/helper.service';
+import { HttpClient } from '@angular/common/http';
+
+// import { FB } from 'facebook-js-sdk';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +12,15 @@ import { HelperService } from '../services/user/helper.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  constructor(private apiService: ApiService, private sanitizer: DomSanitizer, public helper:HelperService) {
+  constructor(
+    private apiService: ApiService,
+    private sanitizer: DomSanitizer,
+    public helper: HelperService,
+    private http: HttpClient
+  ) {
+    this.apiService.getFBposts().subscribe((res:any)=>{console.log(res)})
     const lcYoutube = localStorage.getItem('pichhiliBaharYoutube') || '';
+    const lcInsta = localStorage.getItem('pichhiliBaharInsta') || '';
     if (lcYoutube === '') {
       this.apiService.getYoutubeVideos().subscribe((videos: any) => {
         localStorage.setItem(
@@ -21,14 +31,21 @@ export class HomeComponent {
     } else {
       this.youtubeVideos = JSON.parse(lcYoutube);
     }
-
-    this.apiService.getFBposts().subscribe((res: any) => {
-      console.log(res);
-      this.posts = res.data;
-    });
+    if (lcInsta === '') {
+      this.apiService.getYoutubeVideos().subscribe((videos: any) => {
+        localStorage.setItem(
+          'pichhiliBaharInsta',
+          JSON.stringify(videos.items)
+        );
+      });
+    } else {
+      this.instasPosts = JSON.parse(lcInsta);
+    }
   }
-  
-  posts: any[] = [];
+
+  name = '';
+  email = '';
+  message = '';
 
   images = [
     {
@@ -48,4 +65,17 @@ export class HomeComponent {
     this.apiService.UStreamer.isStreamerActive = true;
     console.log(this.apiService.UStreamer);
   }
+
+  sendQuery() {
+    const queryData = {
+      title: this.name,
+      subject: this.email,
+      description: this.message,
+    };
+    // const dbRef = firebase.database().ref('queries');
+    // dbRef.push(queryData);
+    alert('Query sent successfully!');
+  }
+  instasPosts:any=[]
+  
 }
