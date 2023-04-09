@@ -3,8 +3,7 @@ import { ApiService } from '../services/api/api.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HelperService } from '../services/user/helper.service';
 import { HttpClient } from '@angular/common/http';
-
-// import { FB } from 'facebook-js-sdk';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-home',
@@ -12,35 +11,40 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  items: any[] = [];
   constructor(
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
     public helper: HelperService,
-    private http: HttpClient
+    private http: HttpClient,
+    public afStore: AngularFirestore
   ) {
-    this.apiService.getFBposts().subscribe((res:any)=>{console.log(res)})
-    const lcYoutube = localStorage.getItem('pichhiliBaharYoutube') || '';
-    const lcInsta = localStorage.getItem('pichhiliBaharInsta') || '';
-    if (lcYoutube === '') {
-      this.apiService.getYoutubeVideos().subscribe((videos: any) => {
-        localStorage.setItem(
-          'pichhiliBaharYoutube',
-          JSON.stringify(videos.items)
-        );
-      });
-    } else {
-      this.youtubeVideos = JSON.parse(lcYoutube);
-    }
-    if (lcInsta === '') {
-      this.apiService.getYoutubeVideos().subscribe((videos: any) => {
-        localStorage.setItem(
-          'pichhiliBaharInsta',
-          JSON.stringify(videos.items)
-        );
-      });
-    } else {
-      this.instasPosts = JSON.parse(lcInsta);
-    }
+    this.fetchAllData();
+    // this.afStore
+    //   .collection('website')
+    //   .get()
+    //   .subscribe((querySnapshot) => {
+    //     this.items = [];
+    //     querySnapshot.forEach((doc) => {
+    //       console.log(doc, doc);
+    //       this.items.push(doc.data());
+    //     });
+    //     console.log('items', this.items);
+    //   });
+    // apiService.getFBposts().subscribe((fbPost:any)=>{
+    //   console.log(fbPost.photos.data)
+    //   this.instasPosts=fbPost.photos.data
+    //   this.afStore
+    //   .collection("website")
+    //   .doc('pichhili_Bahar_facebook')
+    //   .update({response:this.youtubeVideos})
+    //   .then(() => {
+    //     console.log("Document updated successfully.");
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error updating document: ", error);
+    //   });
+    // })
   }
 
   name = '';
@@ -49,17 +53,46 @@ export class HomeComponent {
 
   images = [
     {
-      imageSrc: 'assets/slide1.png',
+      imageSrc: 'assets/slide7.jpeg',
       imageAlt: 'Danish',
     },
     {
-      imageSrc: 'assets/slide1.png',
+      imageSrc: 'assets/slide2.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide3.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide4.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide5.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide6.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide7.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide8.jpeg',
       imageAlt: 'Danish',
     },
   ];
 
   youtubeVideos: any[] = [];
 
+  fetchAllData() {
+    this.afStore.collection('website').doc('pichhili_Bahar_Instagram').get().subscribe(res=>{console.log(res.data())})
+    this.afStore.collection('website').doc('pichhili_Bahar_facebook').get().subscribe(res=>{console.log(res.data())})
+    this.afStore.collection('website').doc('pichhili_Bahar_Youtube').get().subscribe((res:any)=>{this.youtubeVideos = res.data().response})
+  }
   selectVideo(video: any) {
     this.apiService.UStreamer.data = video;
     this.apiService.UStreamer.isStreamerActive = true;
@@ -72,10 +105,23 @@ export class HomeComponent {
       subject: this.email,
       description: this.message,
     };
-    // const dbRef = firebase.database().ref('queries');
-    // dbRef.push(queryData);
-    alert('Query sent successfully!');
+    this.afStore.collection('queries').add(queryData).then(res=>
+      {
+        alert('Query sent successfully!');
+      })
   }
-  instasPosts:any=[]
-  
+  instasPosts: any = [];
 }
+
+// write data in firestore collection**
+//  this.afStore
+// .collection("website")
+// .doc('pichhili_Bahar_Youtube')
+// .update({response:this.youtubeVideos})
+// .then(() => {
+//   console.log("Document updated successfully.");
+// })
+// .catch((error) => {
+//   console.log("Error updating document: ", error);
+// });
+// write data in firestore collection**
