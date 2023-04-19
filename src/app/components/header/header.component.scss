@@ -5,10 +5,11 @@
 // }
 // .head-text{}
 .nav {
-    height: 50px;
+    height: 60px;
     width: 100%;
-    background-color: #4d4d4d;
+    // background-color: #4d4d4d;
     position: relative;
+    padding: 0 15px;
   }
   
   .nav > .nav-header {
@@ -17,9 +18,10 @@
   
   .nav > .nav-header > .nav-title {
     display: inline-block;
-    font-size: 22px;
-    color: #fff;
-    padding: 10px 10px 10px 10px;
+    // font-size: 22px;
+    // color: #fff;
+    padding: 16px 10px;
+    cursor: pointer;
   }
   
   .nav > .nav-btn {
@@ -34,13 +36,13 @@
   
   .nav > .nav-links > a {
     display: inline-block;
-    padding: 13px 0 13px 15px;
     text-decoration: none;
-    color: #efefef;
+    cursor: pointer;
   }
   
   .nav > .nav-links > a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  font-size: 12px;
   }
   
   .nav > #nav-check {
@@ -52,7 +54,7 @@
       display: inline-block;
       position: absolute;
       right: 0px;
-      top: 0px;
+      top: 5px;
     }
     .nav > .nav-btn > label {
       display: inline-block;
@@ -62,13 +64,13 @@
     }
     .nav > .nav-btn > label:hover,
     .nav #nav-check:checked ~ .nav-btn > label {
-      background-color: rgba(0, 0, 0, 0.3);
+      // background-color: rgba(0, 0, 0, 0.3);
     }
     .nav > .nav-btn > label > span {
       display: block;
       width: 25px;
       height: 10px;
-      border-top: 2px solid #eee;
+      border-top: 2px solid #404040;
     }
     .nav > .nav-links {
       position: absolute;

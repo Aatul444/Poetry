@@ -20,7 +20,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
-
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TeamsComponent } from './components/teams/teams.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     UTubeStreamerComponent,
     PrivacyPoliciesComponent,
     TermsComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,8 @@ import { FormsModule } from '@angular/forms';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    TeamsComponent    
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -48,14 +48,14 @@
   </div>
 </header> -->
 
-<div class="nav">
+<div class="nav bg-gray-100 px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
-    <div class="nav-title">
+    <div class="nav-title text-xl" routerLink="/">
       PICHHLI BAHAR
     </div>
   </div>
-  <div class="nav-btn" (click)="toggle()">
+  <div class="nav-btn">
     <label for="nav-check">
       <span></span>
       <span></span>
@@ -63,10 +63,9 @@
     </label>
   </div>
 
-  <div class="nav-links">
-    <a>Shayari's</a>
-    <a>Poems</a>
-    <a>Next Show</a>
-    <a>Upload Content</a>
+  <div class="nav-links inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start" style="z-index: 9999">
+    <a class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">Shayari's</a>
+    <a class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">Next Show</a>
+    <a class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4" routerLink="/gallery">Gallery</a>
   </div>
 </div>
