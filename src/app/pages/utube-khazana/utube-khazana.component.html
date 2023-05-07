@@ -1,0 +1,29 @@
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Youtube Khazana</h1>
+        <!-- पिछली बार के कुछ नए कलाकार -->
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The PICHHLI BAHAR is a Platform to support emerging artists.
+          The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.</p>
+      </div>
+  
+      <!-- youtube videos -->
+      <div class="flex flex-wrap -m-4 youtube-videos">
+        <div class="lg:w-1/3 sm:w-1/2 p-4 youtube-videos-video" *ngFor="let video of youtubeVideos; let i=index"
+          (click)="selectVideo(video)" [class.dspN]="video.id.kind==='youtube#channel'">
+          <div class="flex relative">
+            <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center"
+              src="{{video.snippet.thumbnails.high.url}}">
+            <div class="px-8 py-10 relative w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+              <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">_पिछली बहार_</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{video.snippet.title}}</h1>
+              <p class="leading-relaxed">{{video.snippet.description}}{{video.isVideoClicked}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- youtube videos -->
+
+    </div>
+  </section>
+  <app-u-tube-streamer class="UStreamer" *ngIf="apiService.UStreamer.isStreamerActive"></app-u-tube-streamer>

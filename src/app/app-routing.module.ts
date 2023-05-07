@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { PrivacyPoliciesComponent } from './pages/privacy-policies/privacy-policies.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { UtubeKhazanaComponent } from './pages/utube-khazana/utube-khazana.component';
+import { FullteamComponent } from './pages/fullteam/fullteam.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,10 +18,10 @@ const routes: Routes = [
     component: TermsComponent,
   },
   // { path: 'about', component: AboutComponent },
-  // { path: 'team', component: TeamComponent },
-  // { path: 'booking', component: BookingComponent },
+  { path: 'team', component: FullteamComponent },
+  { path: 'U-tube', component: UtubeKhazanaComponent },
   { path: 'gallery', component: GalleryComponent },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

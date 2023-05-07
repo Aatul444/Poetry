@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeamsComponent } from './teams.component';
+import { UtubeKhazanaComponent } from './utube-khazana.component';
 
-describe('TeamsComponent', () => {
-  let component: TeamsComponent;
-  let fixture: ComponentFixture<TeamsComponent>;
+describe('UtubeKhazanaComponent', () => {
+  let component: UtubeKhazanaComponent;
+  let fixture: ComponentFixture<UtubeKhazanaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamsComponent ]
+      declarations: [ UtubeKhazanaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TeamsComponent);
+    fixture = TestBed.createComponent(UtubeKhazanaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

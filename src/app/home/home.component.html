@@ -11,7 +11,7 @@
     <!-- youtube videos -->
     <div class="flex flex-wrap -m-4 youtube-videos">
       <div class="lg:w-1/3 sm:w-1/2 p-4 youtube-videos-video" *ngFor="let video of youtubeVideos; let i=index"
-        (click)="selectVideo(video)" [class.dspN]="video.id.kind==='youtube#channel'">
+        (click)="selectVideo(video)" [class.dspN]="video.id.kind==='youtube#channel'||i==0||i==1||i==2||i==3">
         <div class="flex relative">
           <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center"
             src="{{video.snippet.thumbnails.high.url}}">
@@ -24,8 +24,9 @@
       </div>
     </div>
     <!-- youtube videos -->
-
+    
   </div>
+  <div class="see-btn"><button class="rounded-full see-more" routerLink="/U-tube">See more...</button></div>
 </section>
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
@@ -55,6 +56,31 @@
     </div>
   </div>
 </section>
+
+<div class="teams py-20" style="background:#d6e8db68">
+  <div class="container mx-auto px-6 md:px-12 lg:px-8">
+    <div class="mb-12 space-y-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-900 md:text-5xl">Pichhili Bahar Team</h1>
+      <p class="text-gray-600 lg:w-8/12 lg:mx-auto">Your words are precious, spread here in front of world.</p>
+    </div>
+    <div class="scroll-smooth hover:scroll-auto md:scroll-auto">
+      <div class="py-20 grid gap-28 md:gap-12 md:grid-cols-3">
+        <div class="border-t-4 space-y-8 group text-center" *ngFor="let item of displayedItems">
+          <div class="w-32 h-32 -mt-16 mx-auto rounded-[2rem] rotate-45 overflow-hidden">
+            <img [src]="item.image" class="w-full h-full object-cover -rotate-45 scale-125 mx-auto transition duration-300 group-hover:scale-[1.4]">
+          </div>
+          <div class="text-center">
+            <h5 class="text-xl text-gray-800 font-semibold">{{ item.name }}</h5>
+            <span class="text-sm text-gray-500">Founder</span>
+          </div>
+          <a href="#" class="w-max mx-auto text-center text-blue-500">About me</a>
+        </div>
+      </div>
+    </div>
+    <div class="see-btn"><button class="rounded-full see-more" routerLink="/team">See more...</button></div>
+  </div>
+</div>
+
 <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
@@ -66,35 +92,47 @@
         <div class="p-2 w-1/2">
           <div class="relative">
             <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-            <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" formControlName="name">
+            <input type="text" id="name" name="name"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              formControlName="name">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
             <label for="type" class="leading-7 text-sm text-gray-600">Type</label>
-            <input type="type" id="type" name="type" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"formControlName="type">
+            <input type="type" id="type" name="type"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              formControlName="type">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
             <label for="number" class="leading-7 text-sm text-gray-600">Number</label>
-            <input type="number" id="number" name="number" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"formControlName="number">
+            <input type="number" id="number" name="number"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              formControlName="number">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
             <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-            <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"formControlName="email">
+            <input type="email" id="email" name="email"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              formControlName="email">
           </div>
         </div>
         <div class="p-2 w-full">
           <div class="relative">
             <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-            <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"formControlName="message"></textarea>
+            <textarea id="message" name="message"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              formControlName="message"></textarea>
           </div>
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" (click)="registerUser()">Register me</button>
+          <button
+            class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            (click)="registerUser()">Register me</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
           <a class="text-indigo-500">We will contact you soon!</a>
@@ -103,24 +141,32 @@
           </p>
           <span class="inline-flex">
             <a class="text-gray-500">
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </a>
             <a class="ml-4 text-gray-500">
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                viewBox="0 0 24 24">
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                </path>
               </svg>
             </a>
             <a class="ml-4 text-gray-500">
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-5 h-5" viewBox="0 0 24 24">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </a>
             <a class="ml-4 text-gray-500">
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+                viewBox="0 0 24 24">
+                <path
+                  d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                </path>
               </svg>
             </a>
           </span>
@@ -139,7 +185,7 @@
         referrerpolicy="no-referrer-when-downgrade"></iframe>
       <div>
         <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md"
-          style="filter: grayscale(1);position: relative" *ngIf="addToggle">
+          style="filter: grayscale(1);position: relative"><!-- *ngIf="addToggle"-->
           <div class="lg:w-1/2 px-6">
             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
             <p class="mt-1">Jama masjid Bahadurganj 275201 Ghazipur (Uttar Pradesh)</p>
@@ -151,26 +197,27 @@
             <p class="leading-relaxed">7238051580</p>
           </div>
         </div>
-        <div class="address-toggle" (click)="addToggle=!addToggle"><img src="../../assets/add.png"></div>
+        <!-- <div class="address-toggle" (click)="addToggle=!addToggle"><img src="../../assets/add.png"></div> -->
       </div>
     </div>
-    <form class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0" [formGroup]="queryForm">
+    <form class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+      [formGroup]="queryForm">
       <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
       <p class="leading-relaxed mb-5 text-gray-600">Elevating voices through poetry, storytelling, comedy, music & more
         since 2010. Join us for events ft. emerging & renowned artists. Write down below</p>
       <div class="relative mb-4">
         <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-        <input type="text" id="name" name="name"  formControlName="name"
+        <input type="text" id="name" name="name" formControlName="name"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
       <div class="relative mb-4">
         <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-        <input type="email" id="email" name="email"  formControlName="email"
+        <input type="email" id="email" name="email" formControlName="email"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
       <div class="relative mb-4">
         <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-        <textarea id="message" name="message"  formControlName="message"
+        <textarea id="message" name="message" formControlName="message"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
       <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
@@ -182,3 +229,6 @@
   </div>
 </section>
 <app-u-tube-streamer class="UStreamer" *ngIf="apiService.UStreamer.isStreamerActive"></app-u-tube-streamer>
+<!-- <div class="UStreamer" *ngIf="true">
+  <img src="../assets/loader.gif" alt="">
+</div> -->

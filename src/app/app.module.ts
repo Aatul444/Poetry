@@ -22,7 +22,9 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TeamsComponent } from './components/teams/teams.component';
+import { UtubeKhazanaComponent } from './pages/utube-khazana/utube-khazana.component';
+import { FbKhazanaComponent } from './pages/fb-khazana/fb-khazana.component';
+import { FullteamComponent } from './pages/fullteam/fullteam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,9 @@ import { TeamsComponent } from './components/teams/teams.component';
     PrivacyPoliciesComponent,
     TermsComponent,
     GalleryComponent,
+    UtubeKhazanaComponent,
+    FbKhazanaComponent,
+    FullteamComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,6 @@ import { TeamsComponent } from './components/teams/teams.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    TeamsComponent    
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -18,33 +18,75 @@ export class HomeComponent {
   queryForm: any;
   itemsprof = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
   images = [
-    // {
-    //   imageSrc: 'assets/slide2.jpeg',
-    //   imageAlt: 'Danish',
-    // },
-    // {
-    //   imageSrc: 'assets/slide3.jpeg',
-    //   imageAlt: 'Danish',
-    // },
-    // {
-    //   imageSrc: 'assets/slide5.jpeg',
-    //   imageAlt: 'Danish',
-    // },
-    // {
-    //   imageSrc: 'assets/slide6.jpeg',
-    //   imageAlt: 'Danish',
-    // },
-    // {
-    //   imageSrc: 'assets/slide7.jpeg',
-    //   imageAlt: 'Danish',
-    // },
-    // {
-    //   imageSrc: 'assets/slide8.jpeg',
-    //   imageAlt: 'Danish',
-    // },
+    {
+      imageSrc: 'assets/slide2.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide3.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide5.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide6.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide7.jpeg',
+      imageAlt: 'Danish',
+    },
+    {
+      imageSrc: 'assets/slide8.jpeg',
+      imageAlt: 'Danish',
+    },
   ];
   youtubeVideos: any[] = [];
   instasPosts: any = [];
+  pbTeams: any[]=[
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/1.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/2.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/3.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/4.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/5.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/6.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/7.jpeg'
+    },
+    {
+      name:'',
+      isActive:false,
+      image:'../../assets/teams/8.jpeg'
+    },
+  ];
 
   constructor(
     public apiService: ApiService,
@@ -67,35 +109,50 @@ export class HomeComponent {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
     });
-    // this.afStore
-    //   .collection('website')
-    //   .get()
-    //   .subscribe((querySnapshot) => {
-    //     this.items = [];
-    //     querySnapshot.forEach((doc) => {
-    //       console.log(doc, doc);
-    //       this.items.push(doc.data());
-    //     });
-    //     console.log('items', this.items);
-    //   });
+  }
+  allImages = ['',
+    '../../assets/teams/2.jpeg',
+    '../../assets/teams/3.jpeg',
+    '../../assets/teams/4.jpeg',
+    '../../assets/teams/5.jpeg',
+    '../../assets/teams/6.jpeg',
+    '../../assets/teams/7.jpeg',
+  ];
+  allItems = [
+    { image: '../../assets/teams/1.jpeg', name: 'Dr. Asad Karimi' },
+    { image: '../../assets/teams/2.jpeg', name: 'Er Danish Albela' },
+    { image: '../../assets/teams/3.jpeg', name: 'Khalid Parwana' },
+    { image: '../../assets/teams/4.jpeg', name: 'Ehsan Dilkash' },
+    { image: '../../assets/teams/5.jpeg', name: 'Mahboob Chanchal' },
+    { image: '../../assets/teams/6.jpeg', name: 'Nadeem Iqbal' },
+    { image: '../../assets/teams/7.jpeg', name: 'Danish Daultabadi' },
+    { image: '../../assets/teams/8.jpeg', name: 'Irshad Janab khalili' },
 
-    // apiService.getFBposts().subscribe((fbPost:any)=>{
-    //   console.log(fbPost.photos.data)
-    //   this.instasPosts=fbPost.photos.data
-    //   this.afStore
-    //   .collection("website")
-    //   .doc('pichhili_Bahar_facebook')
-    //   .update({response:JSON.stringify(this.instasPosts)})
-    //   .then(() => {
+  ];
+  displayedItems: any[] = [];
 
-    //     console.log(this.instasPosts,"Document updated successfully.");
-    //   })
-    //   .catch((error) => {
-    //     console.log("Error updating document: ", error);
-    //   });
-    // })
+  currentIndex = 0;
+
+  ngOnInit() {
+    this.updateItems();
+    setInterval(() => {
+      this.updateItems();
+    }, 5000);
   }
 
+  updateItems() {
+    const nextIndex1 = (this.currentIndex + 1) % this.allItems.length;
+    const nextIndex2 = (this.currentIndex + 2) % this.allItems.length;
+    const nextIndex3 = (this.currentIndex + 3) % this.allItems.length;
+
+    this.displayedItems = [
+      this.allItems[this.currentIndex],
+      this.allItems[nextIndex1],
+      this.allItems[nextIndex2]
+    ];
+
+    this.currentIndex = nextIndex3;
+  }
   registerUser() {
     const formData = this.registerForm.value;
     console.log(formData);
@@ -158,14 +215,8 @@ export class HomeComponent {
 
   fetchAllData() {
     // this.afStore.collection('website').doc('pichhili_Bahar_Instagram').get().subscribe(res=>{console.log(res.data())})
-    // this.afStore.collection('website').doc('pichhili_Bahar_facebook').get().subscribe((res:any)=>{console.log(res.data().response)})
-    this.afStore
-      .collection('website')
-      .doc('pichhili_Bahar_Youtube')
-      .get()
-      .subscribe((res: any) => {
-        this.youtubeVideos = res.data().response;
-      });
+    this.afStore.collection('website').doc('pichhili_Bahar_Facebook').get().subscribe((res:any)=>{this.pbTeams=res.data().response})
+    this.afStore.collection('website').doc('pichhili_Bahar_Youtube').get().subscribe((res: any) => {this.youtubeVideos = res.data().response});
   }
 
   selectVideo(video: any) {
@@ -174,16 +225,3 @@ export class HomeComponent {
     console.log(this.apiService.UStreamer);
   }
 }
-
-// write data in firestore collection**
-//  this.afStore
-// .collection("website")
-// .doc('pichhili_Bahar_Youtube')
-// .update({response:this.youtubeVideos})
-// .then(() => {
-//   console.log("Document updated successfully.");
-// })
-// .catch((error) => {
-//   console.log("Error updating document: ", error);
-// });
-// write data in firestore collection**
