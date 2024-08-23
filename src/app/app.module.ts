@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UtubeKhazanaComponent } from './pages/utube-khazana/utube-khazana.component';
 import { FbKhazanaComponent } from './pages/fb-khazana/fb-khazana.component';
 import { FullteamComponent } from './pages/fullteam/fullteam.component';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { FullteamComponent } from './pages/fullteam/fullteam.component';
     UtubeKhazanaComponent,
     FbKhazanaComponent,
     FullteamComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

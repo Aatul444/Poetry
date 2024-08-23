@@ -1,0 +1,15 @@
+.first_loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    .loader{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        img{
+            
+        }
+    }
+}
