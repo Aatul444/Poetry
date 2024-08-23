@@ -1,0 +1,29 @@
+<section class="text-gray-600 body-font">
+    
+    <div class="container px-5 py-24 mx-auto">
+        <div class="text-center mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Our Team</h1>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Your words are precious, spread here in front of world.<br>PICHHLI BAHAR is a Platform to support emerging artists.
+                The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.
+        
+                If you wish to perform or attend as a audience at the event, you can contact on 7238051580.
+        
+                *We upload each and every video on YouTube which people perform at our Channel.</p>
+            <div class="flex mt-6 justify-center">
+              <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+            </div>
+          </div>
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full" *ngFor="let member of members">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{member.image}}">
+          </a>
+          <div class="mt-4">
+            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Pichhili Bahar</h3>
+            <h2 class="text-gray-900 title-font text-lg font-medium">{{member.name}}</h2>
+            <!-- <p class="mt-1">$16.00</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

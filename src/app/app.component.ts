@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './services/api/api.service';
 import { AuthServiceService } from './services/auth-service.service';
 
 @Component({
@@ -8,5 +9,8 @@ import { AuthServiceService } from './services/auth-service.service';
 })
 export class AppComponent {
   title = 'poetry';
-  constructor(private authService: AuthServiceService) {}
+  constructor(private authService: AuthServiceService,public apiService:ApiService) {
+    this.apiService.UStreamer.isStreamerActive
+  }
+  
 }

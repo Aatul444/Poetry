@@ -1,0 +1,17 @@
+<!-- <div class="popup" *ngIf="video.isActive">
+    <div class="popup-content">
+        <span class="close">X</span>
+        <iframe width="760" height="400" [src]="video.safeURL" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+</div> -->
+<div class="box">
+    <div class="box-content">
+        <iframe width="100%" height="100%" [src]="streamURL" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="box-close" (click)="closeModal()">X</div>
+</div>
