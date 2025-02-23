@@ -1,98 +1,136 @@
-// .headColor{
-//     --tw-bg-opacity: 1;
-//     background-color: rgb(40 40 40);
-//     color: #b0acac;
-// }
-// .head-text{}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap');
+
+
+
+// 🎨 Navigation Bar Styling
 .nav {
-    height: 60px;
+    height: 80px;
     width: 100%;
-    // background-color: #4d4d4d;
+    background-color: rgb(177 233 129 / 68%) ;
+    box-shadow: 0px 4px 6px --shadow-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
     position: relative;
-    padding: 0 15px;
-  }
-  
-  .nav > .nav-header {
-    display: inline;
-  }
-  
-  .nav > .nav-header > .nav-title {
-    display: inline-block;
-    // font-size: 22px;
-    // color: #fff;
-    padding: 16px 10px;
-    cursor: pointer;
-  }
-  
-  .nav > .nav-btn {
+    transition: background-color 0.3s ease-in-out;
+
+    .nav-header {
+        display: flex;
+        align-items: center;
+
+        .nav-logo {
+            width: 180px;
+            height: auto;
+        }
+
+        .nav-title {
+            font-family: var(--font-secondary);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-left: 10px;
+            cursor: pointer;
+
+            img{
+              width: 238px;
+              height: 75px;
+            }
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+
+        a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 18px;
+            font-weight: 500;
+            transition: color var(--transition-speed) ease-in-out;
+          cursor: pointer;
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+// 🎨 Mobile Menu Button
+.nav-btn {
     display: none;
-  }
-  
-  .nav > .nav-links {
-    display: inline;
-    float: right;
-    font-size: 18px;
-  }
-  
-  .nav > .nav-links > a {
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .nav > .nav-links > a:hover {
-  font-weight: 700;
-  font-size: 12px;
-  }
-  
-  .nav > #nav-check {
+}
+
+.nav #nav-check {
     display: none;
-  }
-  
-  @media (max-width: 600px) {
-    .nav > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      top: 5px;
+}
+
+// 🎨 Responsive Mobile Navigation
+@media (max-width: 768px) {
+    .nav {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .nav > .nav-btn > label {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      padding: 13px;
+
+    .nav-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
-    .nav > .nav-btn > label:hover,
-    .nav #nav-check:checked ~ .nav-btn > label {
-      // background-color: rgba(0, 0, 0, 0.3);
+
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        label {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+
+            span {
+                width: 30px;
+                height: 4px;
+                background:var( --primary-color);
+                transition: transform 0.3s ease-in-out;
+            }
+        }
     }
-    .nav > .nav-btn > label > span {
-      display: block;
-      width: 25px;
-      height: 10px;
-      border-top: 2px solid #404040;
+
+    .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--background-alt);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+
+        a {
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            transition: background-color var(--transition-speed) ease-in-out;
+
+            &:hover {
+                background: var(--tertiary-color);
+                color: var(--background-color);
+            }
+        }
     }
-    .nav > .nav-links {
-      position: absolute;
-      display: block;
-      width: 100%;
-      background-color: #333;
-      height: 0px;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: 0px;
+
+    #nav-check:checked ~ .nav-links {
+        height: 250px;
     }
-    .nav > .nav-links > a {
-      display: block;
-      width: 100%;
-    }
-    .nav > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-    .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-    }
-  }
-  
+}

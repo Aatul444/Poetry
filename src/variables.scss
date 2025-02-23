@@ -1,0 +1,43 @@
+
+:root
+{
+    // Primary Colors
+--primary-color: #2C3E50; // Deep navy blue
+--secondary-color: #4E6B50; // Muted green
+--tertiary-color: #A7C4A0; // Soft pastel green
+
+// Background Colors
+--background-color: #F8F9F5; // Warm off-white (light theme)
+--background-alt: #EEF4EC; // Pale sage green (alternative background)
+--background-gray: #F2F4F6; // Cool light gray (modern feel)
+
+// Text Colors
+--text-primary: #2C3E50; // Dark text for contrast
+--text-secondary: #4E6B50; // Muted green for subtitles
+--text-light: #A7C4A0; // Soft green for subtle text
+
+// Border & Shadow Colors
+--border-color: #D1D9D2; // Soft gray-green for borders
+--shadow-color: rgba(44, 62, 80, 0.15); // Light shadow for depth
+
+// Button Colors
+--button-primary: #2C3E50; // Primary button color
+--button-hover: #1E2B38; // Darker shade on hover
+--button-secondary: #4E6B50; // Secondary button
+--button-tertiary: #A7C4A0; // Tertiary button
+
+// Miscellaneous
+--success-color: #4CAF50; // Success message
+--error-color: #E74C3C; // Error message
+--warning-color: #F39C12; // Warning message
+
+// Font Variables
+--font-primary: 'Poppins', sans-serif;
+--font-secondary: 'Lora', serif;
+
+// Spacing Variables
+--spacing-unit: 8px;
+--border-radius: 6px;
+--transition-speed: 0.3s;
+
+}

@@ -2,6 +2,9 @@
 /*---- NUMBER OF SLIDE CONFIGURATION ----*/
 $num-of-slide: 5;
 
+.youtube_khajana{
+  background-color: rgb(177 233 129 / 68%) ;
+}
 .wrapper {
   width: 100%;
   margin: 1em auto;
@@ -44,7 +47,7 @@ article {
     background: #fff;
     opacity: 0.7;
 
-    &:hover {
+    &:--r {
       opacity: 1;
     }
   }
@@ -63,12 +66,12 @@ article {
     width: 10px;
     height: 10px;
     background: #bbb;
-    transition: all 0.3s;
+    transition: all 1s;
     // @include transition(all 0.3s);
 
     &:hover {
-      background: #ccc;
-      border-color: #777;
+      background: var(--primary-color);
+      border-color:var(--tertiary-color);
     }
   }
 }
@@ -264,6 +267,10 @@ article {
   justify-content: center;
   .youtube-videos-video {
     cursor: pointer;
+
+    div{
+      border:2px solid yellow;
+    }
   }
 }
 
@@ -339,7 +346,7 @@ article {
   border: 2px solid green;
   padding: 5px 20px;
   :hover{
-    background: #d6e8db;
+    background:rgb(177 233 129 / 68%) ;
   }
 }
 .see-btn{
@@ -348,3 +355,4 @@ article {
   justify-content:center;
   align-items: center;
 }
+

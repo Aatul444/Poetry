@@ -19,29 +19,29 @@ export class HomeComponent {
   itemsprof = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
   images = [
     {
-      imageSrc: 'assets/slide2.jpeg',
-      imageAlt: 'Danish',
+      imageSrc: 'assets/1.png',
+      imageAlt: 'Iqbal',
     },
     {
-      imageSrc: 'assets/slide3.jpeg',
-      imageAlt: 'Danish',
+      imageSrc: 'assets/2.png',
+      imageAlt: 'ghalib',
     },
     {
-      imageSrc: 'assets/slide5.jpeg',
-      imageAlt: 'Danish',
+      imageSrc: 'assets/3.png',
+      imageAlt: 'jaun',
     },
-    {
-      imageSrc: 'assets/slide6.jpeg',
-      imageAlt: 'Danish',
-    },
-    {
-      imageSrc: 'assets/slide7.jpeg',
-      imageAlt: 'Danish',
-    },
-    {
-      imageSrc: 'assets/slide8.jpeg',
-      imageAlt: 'Danish',
-    },
+    // {
+    //   imageSrc: 'assets/slide6.jpeg',
+    //   imageAlt: 'Danish',
+    // },
+    // {
+    //   imageSrc: 'assets/slide7.jpeg',
+    //   imageAlt: 'Danish',
+    // },
+    // {
+    //   imageSrc: 'assets/slide8.jpeg',
+    //   imageAlt: 'Danish',
+    // },
   ];
   youtubeVideos: any[] = [];
   instasPosts: any = [];
