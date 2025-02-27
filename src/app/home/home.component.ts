@@ -119,18 +119,17 @@ export class HomeComponent {
     '../../assets/teams/7.jpeg',
   ];
   allItems = [
-    { image: '../../assets/teams/1.jpeg', name: 'Dr. Asad Karimi' },
-    { image: '../../assets/teams/2.jpeg', name: 'Er Danish Albela' },
-    { image: '../../assets/teams/3.jpeg', name: 'Khalid Parwana' },
-    { image: '../../assets/teams/4.jpeg', name: 'Ehsan Dilkash' },
-    { image: '../../assets/teams/5.jpeg', name: 'Mahboob Chanchal' },
-    { image: '../../assets/teams/6.jpeg', name: 'Nadeem Iqbal' },
-    { image: '../../assets/teams/7.jpeg', name: 'Danish Daultabadi' },
-    { image: '../../assets/teams/8.jpeg', name: 'Irshad Janab khalili' },
+    // { image: '../../assets/teams/1.jpeg', name: 'Dr. Asad Karimi' },
+    { image: '../../assets/teams/2.jpeg', name: 'Danish Albela',designation:"Founder / Director" , about:"Website Developer"},
+    { image: '../../assets/teams/3.jpeg', name: 'Khalid Parwana' , designation:  "Performer / Poet" , about: "Postgraduate in Urdu" },
+    { image: '../../assets/teams/4.jpeg', name: 'Ehsan Dilkash', designation:"Content Creator"  },
+    { image: '../../assets/teams/5.jpeg', name: 'Mahboob Chanchal', designation:"Host / Emcee" },
+    { image: '../../assets/teams/6.jpeg', name: 'Nadeem Iqbal' , designation: "Social Media Manager (Convener)", about: "Postgraduate in Urdu"},
+    { image: '../../assets/teams/7.jpeg', name: 'Danish Daultabadi' , designation: "Videographer / Editor" , about:"Naat-Khwan"  },
+    { image: '../../assets/teams/8.jpeg', name: 'Danish Rizwan' , designation: " Event Manager " , about: "Postgraduate in Urdu"},
 
   ];
   displayedItems: any[] = [];
-
   currentIndex = 0;
 
   ngOnInit() {
@@ -174,6 +173,7 @@ export class HomeComponent {
         });
     }
   }
+  
 
   getDateMonth(month: number) {
     const months = [
@@ -224,4 +224,5 @@ export class HomeComponent {
     this.apiService.UStreamer.isStreamerActive = true;
     console.log(this.apiService.UStreamer);
   }
+  backgroundImage: string = 'assets/bg.png';
 }

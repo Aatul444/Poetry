@@ -3,7 +3,48 @@
 $num-of-slide: 5;
 
 .youtube_khajana{
-  background-color: rgb(177 233 129 / 68%) ;
+  background-color:var(--background-color) ;
+  
+}
+.title{
+  color: var(--text-primary);
+}
+.para{
+  color: var(--text-secondary);
+}
+.body-font{
+  background-color: var(--background-gray);
+}
+.latest_show{
+  background-color: var(--background-alt);
+}
+.reg-form{
+  // background-color: var(--background-color);
+ div{
+  background-color: #000000;
+  opacity: 0.8;
+  .title1{
+    color: var(--background-alt);
+  }
+  .para1{
+    color: var(--background-alt);
+  }
+ }
+}
+
+.Add_bg{
+  background-color: var(--background-alt);
+}
+.fd_bg{
+  background-color: var(--background-color);
+}
+
+
+
+
+.feedback_form{
+  // background-color: var(--background-alt);
+  padding: 10px;
 }
 .wrapper {
   width: 100%;
@@ -208,6 +249,7 @@ article {
         @extend %bind-next-button;
       }
     }
+
   }
 }
 
@@ -269,7 +311,7 @@ article {
     cursor: pointer;
 
     div{
-      border:2px solid yellow;
+      border:2px solid var(--primary-color);
     }
   }
 }

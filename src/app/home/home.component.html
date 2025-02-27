@@ -2,10 +2,9 @@
 <section class="youtube_khajana">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Some new artists from last time</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 title">Some new artists from last time</h1>
       <!-- पिछली बार के कुछ नए कलाकार -->
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The PICHHLI BAHAR is a Platform to support emerging artists.
-        The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base para ">The PICHHLI BAHAR is a platform dedicated to supporting emerging artists. It serves as an open space for a vibrant community of writers, poets, singers, and storytellers to showcase their talent and creativity.</p>
     </div>
 
     <!-- youtube videos -->
@@ -15,10 +14,10 @@
         <div class="flex relative">
           <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center"
             src="{{video.snippet.thumbnails.high.url}}">
-          <div class="px-8 py-10 relative w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">_पिछली बहार_</h2>
-            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{video.snippet.title}}</h1>
-            <p class="leading-relaxed">{{video.snippet.description}}{{video.isVideoClicked}}</p>
+            <div class="group px-8 py-10 relative w-full border-4 opacity-0 transition-all duration-700 ease-in-out hover:opacity-100 hover:bg-[#A7C4A0] hover:scale-105">
+              <h2 class="tracking-widest text-sm font-medium text-indigo-500 mb-1">_पिछली बहार_</h2>
+              <h1 class="text-lg font-medium text-gray-900 mb-3">{{video.snippet.title}}</h1>
+              <p class="leading-relaxed">{{video.snippet.description}}{{video.isVideoClicked}}</p>
           </div>
         </div>
       </div>
@@ -26,21 +25,24 @@
     <!-- youtube videos -->
     
   </div>
-  <div class="see-btn"><button class="rounded-full see-more" routerLink="/U-tube">See more...</button></div>
+  <div class="see-btn pb-5">
+    <button class="rounded-full see-more px-4 py-2 transition-all duration-700 ease-in-out hover:bg-[rgba(177,233,129,0.68)] hover:scale-105">
+        See more...
+    </button>
+</div>
 </section>
-<section class="text-gray-600 body-font">
+<section class="title latest_show ">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20">
       <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Upcomming and latest shows</h1>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 title ">Upcomming and latest shows</h1>
         <div class="h-1 w-20 bg-indigo-500 rounded"></div>
       </div>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">PICHHLI BAHAR is a Platform to support emerging artists.
-        The PICHHLI BAHAR is a Open platform for a community of writers, poets, singers, and Storyteller.
+      <p class="lg:w-1/2 w-full leading-relaxed para ">PICHHLI BAHAR is a platform dedicated to supporting emerging artists. It provides an open space for a vibrant community of writers, poets, singers, and storytellers to share their talent.
 
-        If you wish to perform or attend as a audience at the event, you can contact on 7238051580.
-
-        *We upload each and every video on YouTube which people perform at our Channel.</p>
+        If you wish to perform or attend as an audience member at our events, you can contact us at 7238051580.
+        
+        Every performance is recorded and uploaded to our YouTube channel, ensuring wider reach and recognition for our artists.</p>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/4 md:w-1/2 p-4">
@@ -60,8 +62,8 @@
 <div class="teams py-20" style="background:#d6e8db68">
   <div class="container mx-auto px-6 md:px-12 lg:px-8">
     <div class="mb-12 space-y-4 text-center">
-      <h1 class="text-4xl font-bold text-gray-900 md:text-5xl">Pichhili Bahar Team</h1>
-      <p class="text-gray-600 lg:w-8/12 lg:mx-auto">Your words are precious, spread here in front of world.</p>
+      <h1 class="text-4xl font-bold title md:text-5xl">Our Team</h1>
+      <p class="title lg:w-8/12 lg:mx-auto para ">Your words are precious, spread here in front of world.</p>
     </div>
     <div class="scroll-smooth hover:scroll-auto md:scroll-auto">
       <div class="py-20 grid gap-28 md:gap-12 md:grid-cols-3">
@@ -70,62 +72,66 @@
             <img [src]="item.image" class="w-full h-full object-cover -rotate-45 scale-125 mx-auto transition duration-300 group-hover:scale-[1.4]">
           </div>
           <div class="text-center">
-            <h5 class="text-xl text-gray-800 font-semibold">{{ item.name }}</h5>
-            <span class="text-sm text-gray-500">Founder</span>
+            <h5 class="text-xl title font-semibold">{{ item.name }}</h5>
+            <span class="text-sm para ">{{item.designation}}</span>
           </div>
-          <a href="#" class="w-max mx-auto text-center text-blue-500">About me</a>
+          <a href="#" class="w-max mx-auto text-center text-blue-500">{{item.about}}</a>
         </div>
       </div>
     </div>
-    <div class="see-btn"><button class="rounded-full see-more" routerLink="/team">See more...</button></div>
+    <div class="see-btn pb-5">
+      <button class="rounded-full see-more px-4 py-2 transition-all duration-700 ease-in-out hover:bg-[rgba(177,233,129,0.68)] hover:scale-105">
+          See more...
+      </button>
+  </div>
   </div>
 </div>
 
-<section class="text-gray-600 body-font relative">
+<section class="reg-form relative bg-cover bg-center bg-no-repeat" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Register Here</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Register as a performer or audience</p>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 title1">Register Here</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base para1">Register as a performer or audience</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <form class="flex flex-wrap -m-2" [formGroup]="registerForm">
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+            <label for="name" class="leading-7 text-sm title1">Name</label>
             <input type="text" id="name" name="name"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none para1 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               formControlName="name">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="type" class="leading-7 text-sm text-gray-600">Type</label>
+            <label for="type" class="leading-7 text-sm title1">Type</label>
             <input type="type" id="type" name="type"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none para1 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               formControlName="type">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="number" class="leading-7 text-sm text-gray-600">Number</label>
+            <label for="number" class="leading-7 text-sm title1">Number</label>
             <input type="number" id="number" name="number"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none para1 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               formControlName="number">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+            <label for="email" class="leading-7 text-sm title1">Email</label>
             <input type="email" id="email" name="email"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none para1 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               formControlName="email">
           </div>
         </div>
         <div class="p-2 w-full">
           <div class="relative">
-            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+            <label for="message" class="leading-7 text-sm title1">Message</label>
             <textarea id="message" name="message"
-              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+              class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none para1 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               formControlName="message"></textarea>
           </div>
         </div>
@@ -135,18 +141,18 @@
             (click)="registerUser()">Register me</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-          <a class="text-indigo-500">We will contact you soon!</a>
-          <p class="leading-normal my-5">thepichhlibahar&#64;gmail.com
+          <a class=" para1">We will contact you soon!</a>
+          <p class="leading-normal my-5 para1">thepichhlibahar&#64;gmail.com
             <br>Phone No. 7238051580
           </p>
           <span class="inline-flex">
-            <a class="text-gray-500">
+            <a class="para1">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
                 viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </a>
-            <a class="ml-4 text-gray-500">
+            <a class="ml-4 para1">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
                 viewBox="0 0 24 24">
                 <path
@@ -154,14 +160,14 @@
                 </path>
               </svg>
             </a>
-            <a class="ml-4 text-gray-500">
+            <a class="ml-4 para1">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 class="w-5 h-5" viewBox="0 0 24 24">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </a>
-            <a class="ml-4 text-gray-500">
+            <a class="ml-4 para1">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
                 viewBox="0 0 24 24">
                 <path
@@ -175,21 +181,23 @@
     </div>
   </div>
 </section>
-<section class="text-gray-600 body-font relative">
-  <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+
+<section class="title body-font relative">
+  <div class="container px-5 py-24 mx-auto  flex sm:flex-nowrap flex-wrap">
     <div
-      class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+      class="lg:w-2/3 md:w-1/2  rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
       <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0"
         marginwidth="0" scrolling="no"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14358.816634566712!2d83.6474576!3d25.8792126!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39921f6d2dc2aea9%3A0x5c6a62a574be4aa8!2sJama%20Masjid%20Bahadurganj%20Ghazipur!5e0!3m2!1sen!2sin!4v1680409190242!5m2!1sen!2sin"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
       <div>
-        <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md"
+        <div class=" relative Add_bg flex flex-wrap py-6 rounded shadow-md"
           style="filter: grayscale(1);position: relative"><!-- *ngIf="addToggle"-->
-          <div class="lg:w-1/2 px-6">
+          <div class="lg:w-1/2 px-6  p-4 rounded-md">
             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-            <p class="mt-1">Jama masjid Bahadurganj 275201 Ghazipur (Uttar Pradesh)</p>
-          </div>
+            <p class="mt-1">Jama Masjid Bahadurganj 275201 Ghazipur (Uttar Pradesh)</p>
+            </div>
           <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
             <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
             <a class="text-indigo-500 leading-relaxed">thepichhlibahar&#64;gmail.com</a>
@@ -200,23 +208,23 @@
         <!-- <div class="address-toggle" (click)="addToggle=!addToggle"><img src="../../assets/add.png"></div> -->
       </div>
     </div>
-    <form class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
+    <form class="feedback_form lg:w-1/3 md:w-1/2 fd_bg flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
       [formGroup]="queryForm">
       <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-      <p class="leading-relaxed mb-5 text-gray-600">Elevating voices through poetry, storytelling, comedy, music & more
+      <p class="leading-relaxed mb-5 title">Elevating voices through poetry, storytelling, comedy, music & more
         since 2010. Join us for events ft. emerging & renowned artists. Write down below</p>
       <div class="relative mb-4">
-        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+        <label for="name" class="leading-7 text-sm title">Name</label>
         <input type="text" id="name" name="name" formControlName="name"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
       <div class="relative mb-4">
-        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+        <label for="email" class="leading-7 text-sm title">Email</label>
         <input type="email" id="email" name="email" formControlName="email"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
       </div>
       <div class="relative mb-4">
-        <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+        <label for="message" class="leading-7 text-sm title">Message</label>
         <textarea id="message" name="message" formControlName="message"
           class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>

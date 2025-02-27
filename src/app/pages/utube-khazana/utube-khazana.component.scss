@@ -1,3 +1,9 @@
 .youtube_khajana{
-    background-color: rgb(177 233 129 / 68%) ;
+    background-color: var(--background-color);
 }
+.title{
+    color: var(--text-primary);
+}
+.para{
+    color: var(--text-secondary);
+  }
