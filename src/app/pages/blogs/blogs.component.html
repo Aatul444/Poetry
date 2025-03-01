@@ -1,0 +1,132 @@
+<div class="blog_page">
+
+<header>
+    <section>
+      <h1 class="title">Our Blogs</h1>
+    </section>
+  </header>
+  
+  <div class="blog_container">
+    <div class="blog_content">
+      <div class="left_content">
+        @if (blogPosts && blogPosts[0]?.fields) {
+        <div>
+          <div class="blog_card">
+            <a class="figure" (click)="openBlog(blogPosts[0].fields['slug'])">
+              <img 
+                [src]="blogPosts[0].fields['image']?.fields?.file?.url ? 'https:' + blogPosts[0].fields['image'].fields.file.url : 'assets/images/default-thumbnail.png'" 
+                [alt]="blogPosts[0].fields['thumbnailDescription']" 
+                loading="lazy" 
+              />
+              @if (blogPosts[0].sys['createdAt']) {
+                  <span class="tag">{{ blogDateFormat(blogPosts[0].sys['createdAt']) }}</span>
+                }
+            </a>
+            <section>
+              <a class="title" [innerHTML]="richTextToHtml(blogPosts[0].fields['title'])"></a>
+              <div [innerHTML]="richTextToHtml(blogPosts[0].fields['content'])"></div>
+            </section>
+          </div>
+        </div>
+        @for (blog of blogPosts; track $index) {
+            <div class="blog_card" (click)="openBlog(blog.fields['slug'])">
+                <a class="figure">
+                    <img 
+                    [src]="blog.fields['image']?.fields?.file?.url ? 'https:' + blog.fields['image'].fields.file.url : 'assets/images/default-thumbnail.png'" 
+                    [alt]="blog.fields['blogId']" 
+                    loading="lazy" 
+                    />
+                    @if (blog.sys['createdAt']) {
+                        <span class="tag">{{ blogDateFormat(blog.sys['createdAt']) }}</span>
+                    }
+                </a>
+                <section>
+                    <a class="title">{{blog.fields['blogId']}}</a>
+                    <div>{{blog.fields['thumbnailDescription']}}</div>
+                </section>
+            </div>
+        }
+    }
+      </div>
+      <button class="btn1 load-btn">Load more</button>
+    </div>
+  
+    <div class="blog_content right_content">
+      <div class="columns search_column">
+        <section class="search">
+          <form>
+            <fieldset>
+              <input type="text" name="search" placeholder="Search..." maxlength="100" required />
+            </fieldset>
+            <!-- <button type="submit" class="btn1">
+              <i class="fa fa-search"></i>
+            </button> -->
+          </form>
+        </section>
+      </div>
+  
+      <div class="columns books">
+        <span class="title">
+          Digital Footprints
+          <a title="Explore More"><i class="fa fa-share"></i></a>
+        </span>
+        <section>
+          <div class="cards">
+            <div
+              class="card_part card_part-one"
+              style="background-image: url('https://images.app.goo.gl/1iRUzz2x4UQ4ZNHf9');"
+            ></div>
+          </div>
+        </section>
+      </div>
+  
+      <div class="columns categories">
+        <span class="title">Categories</span>
+        <section>
+          @for (category of categories; track $index) {
+              <a>{{ category }}</a>
+            }
+        </section>
+      </div>
+  
+      <div class="columns posts">
+        <span class="title">
+          Recent Posts
+          <a title="Explore More"><i class="fa fa-share"></i></a>
+        </span>
+        <section>
+          @for (post of blogPosts; track $index) {
+              <a (click)="openBlog(post.fields['slug'])">
+                  <img 
+                  [src]="post.fields['thumbnail']?.fields?.file?.url ? 'https:' + post.fields['thumbnail']?.fields?.file?.url : 'assets/images/default-thumbnail.png'" 
+                  alt="Thumbnail {{ $index + 1 }}" 
+                  loading="lazy" 
+                  />
+                  <p>{{ post.fields['blogId'] }}</p>
+                </a>
+            }
+        </section>
+      </div>
+  
+      <div class="columns comments">
+        <span class="title">
+          Recent Features
+          <a title="Explore More"><i class="fa fa-share"></i></a>
+        </span>
+        <section>
+          <marquee
+            direction="up"
+            scrollamount="4"
+            onMouseOver="this.stop()" onMouseOut="this.start()"
+            class="marquee2"
+          >
+            <p>Task Management</p>
+            <p>Rules Management</p>
+            <p>Expense Management</p>
+            <p>List Creation</p>
+          </marquee>
+        </section>
+      </div>
+    </div>
+  </div>
+  </div>

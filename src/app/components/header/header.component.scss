@@ -1,14 +1,10 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap');
 
-
-
-// 🎨 Navigation Bar Styling
 .nav {
     height: 80px;
     width: 100%;
-    background-color: rgb(177 233 129 / 68%) ;
-    box-shadow: 0px 4px 6px --shadow-color;
+    background-color: rgba(177, 233, 129, 0.68);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,22 +16,15 @@
         display: flex;
         align-items: center;
 
-        .nav-logo {
-            width: 180px;
-            height: auto;
-        }
-
         .nav-title {
-            font-family: var(--font-secondary);
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-left: 10px;
+            color: #333;
             cursor: pointer;
 
-            img{
-              width: 238px;
-              height: 75px;
+            img {
+                width: 238px;
+                height: 75px;
             }
         }
     }
@@ -46,33 +35,30 @@
 
         a {
             text-decoration: none;
-            color: var(--text-primary);
+            color: #555;
             font-size: 18px;
             font-weight: 500;
-            transition: color var(--transition-speed) ease-in-out;
-          cursor: pointer;
+            transition: color 0.3s ease-in-out;
+            cursor: pointer;
+
             &:hover {
-                color: var(--secondary-color);
+                color: #ff5722;
             }
         }
     }
 }
 
-// 🎨 Mobile Menu Button
 .nav-btn {
     display: none;
 }
 
-.nav #nav-check {
+#nav-check {
     display: none;
 }
 
-// 🎨 Responsive Mobile Navigation
 @media (max-width: 768px) {
     .nav {
         padding: 10px 20px;
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .nav-header {
@@ -83,22 +69,18 @@
 
     .nav-btn {
         display: flex;
-        align-items: center;
         cursor: pointer;
 
         label {
-            width: 40px;
-            height: 40px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             gap: 6px;
             cursor: pointer;
 
             span {
                 width: 30px;
                 height: 4px;
-                background:var( --primary-color);
+                background: #333;
                 transition: transform 0.3s ease-in-out;
             }
         }
@@ -109,11 +91,11 @@
         top: 80px;
         left: 0;
         width: 100%;
-        background: var(--background-alt);
-        display: flex;
+        background-color: #cbf0ab;
         flex-direction: column;
         align-items: center;
         height: 0;
+        z-index: 999999 !important;
         overflow: hidden;
         transition: height 0.3s ease-in-out;
 
@@ -121,11 +103,9 @@
             padding: 15px;
             width: 100%;
             text-align: center;
-            transition: background-color var(--transition-speed) ease-in-out;
-
             &:hover {
-                background: var(--tertiary-color);
-                color: var(--background-color);
+                background: #ff5722;
+                color: #fff;
             }
         }
     }

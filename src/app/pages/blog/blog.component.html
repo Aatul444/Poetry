@@ -1,0 +1,106 @@
+<div class="blog_page">
+    <div class="blog_container">
+        <div class="blog_content">
+          <div class="left_content">
+            @if (blogPosts && blogPosts[0]?.fields && blogPost) {
+            <div>
+              <div class="blog_card">
+                <a class="figure" (click)="openBlog(blogPost.fields['slug'])">
+                  <img 
+                    [src]="blogPost.fields['image']?.fields?.file?.url ? 'https:' + blogPost.fields['image'].fields.file.url : 'assets/images/default-thumbnail.png'" 
+                    [alt]="blogPost.fields['thumbnailDescription']" 
+                    loading="lazy" 
+                  />
+                  @if (blogPost.sys['createdAt']) {
+                      <span class="tag">{{ blogDateFormat(blogPost.sys['createdAt']) }}</span>
+                    }
+                </a>
+                <section>
+                  <a class="title" [innerHTML]="richTextToHtml(blogPost.fields['title'])"></a>
+                  <div [innerHTML]="richTextToHtml(blogPost.fields['content'])"></div>
+                </section>
+              </div>
+            </div>
+        }
+          </div>
+        </div>
+      
+        <div class="blog_content right_content">
+          <div class="columns search_column">
+            <section class="search">
+              <form>
+                <fieldset>
+                  <input type="text" name="search" placeholder="Search..." maxlength="100" required />
+                </fieldset>
+                <!-- <button type="submit" class="btn1">
+                  <i class="fa fa-search"></i>
+                </button> -->
+              </form>
+            </section>
+          </div>
+      
+          <div class="columns books">
+            <span class="title">
+              Digital Footprints
+              <a title="Explore More"><i class="fa fa-share"></i></a>
+            </span>
+            <section>
+              <div class="cards">
+                <div
+                  class="card_part card_part-one"
+                  style="background-image: url('https://images.app.goo.gl/1iRUzz2x4UQ4ZNHf9');"
+                ></div>
+              </div>
+            </section>
+          </div>
+      
+          <div class="columns categories">
+            <span class="title">Categories</span>
+            <section>
+              @for (category of categories; track $index) {
+                  <a>{{ category }}</a>
+                }
+            </section>
+          </div>
+      
+          <div class="columns posts">
+            <span class="title">
+              Recent Posts
+              <a title="Explore More"><i class="fa fa-share"></i></a>
+            </span>
+            <section>
+              @for (post of blogPosts; track $index) {
+                  <a (click)="openBlog(post.fields['slug'])">
+                      <img 
+                      [src]="post.fields['thumbnail']?.fields?.file?.url ? 'https:' + post.fields['thumbnail']?.fields?.file?.url : 'assets/images/default-thumbnail.png'" 
+                      alt="Thumbnail {{ $index + 1 }}" 
+                      loading="lazy" 
+                      />
+                      <p>{{ post.fields['blogId'] }}</p>
+                    </a>
+                }
+            </section>
+          </div>
+      
+          <div class="columns comments">
+            <span class="title">
+              Recent Features
+              <a title="Explore More"><i class="fa fa-share"></i></a>
+            </span>
+            <section>
+              <marquee
+                direction="up"
+                scrollamount="4"
+                onMouseOver="this.stop()" onMouseOut="this.start()"
+                class="marquee2"
+              >
+                <p>Task Management</p>
+                <p>Rules Management</p>
+                <p>Expense Management</p>
+                <p>List Creation</p>
+              </marquee>
+            </section>
+          </div>
+        </div>
+      </div>
+</div>
